@@ -11,6 +11,7 @@ export default {
     databesePoolMax:  '7',
     databesePoolMin: '0',
     logSentenceSQL: true,
+    fetchTimeout: 29000,
     // activeEvent: process.env.ACTIVE_EVENT || '',
     // apiEvent: process.env.API_HC_PENTAGONO || '',
     // apikeyTvs: process.env.TVS_API_KEY || '',

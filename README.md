@@ -26,6 +26,6 @@ It's very important that you implement perfectly the guide attached below to col
 
  1. **/search-config**:  This resource has as goal return all geography range configuration available in DB for build the search window in the front end. 
 
-         `curl --location --request GET 'localhost:9086/V1/geographyc/get-search-range'`
+         `curl --location --request GET 'localhost:9086/V1/purchase/get-search-range'`
          `curl --location --request PUT 'localhost:9086/V1/geography/overwriterange'`
  
