@@ -19,7 +19,7 @@ export class PurchaseService {
          const fetchInfo: IFetchInfo = {
             codeError: 'Geography-mngr',
             debug: '',
-            endpoint: `${Endpoints.GEOGRAPHYC_MANAGMENT}${Endpoints.GET_USER_NOTIFICATION}/${dataRequest.package}/${dataRequest.latitud}/${dataRequest.longitud}`,
+            endpoint: `${Endpoints.GEOGRAPHYC_MANAGMENT}${Endpoints.GET_USER_NOTIFICATION}/${dataRequest.latitud}/${dataRequest.longitud}/${dataRequest.rangoDeBusqueda}`,
             method: 'GET',
 
          };

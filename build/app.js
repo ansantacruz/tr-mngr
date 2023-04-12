@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const GeographyController_1 = __importDefault(require("./controllers/GeographyController"));
+const PurchaseController_1 = __importDefault(require("./controllers/PurchaseController"));
 const config_1 = __importDefault(require("./config"));
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
@@ -27,6 +27,6 @@ app.use((_, res, next) => {
 app.use(actuator({
     basePath: '/management',
 }));
-app.use(fullApiPath, GeographyController_1.default);
+app.use(fullApiPath, PurchaseController_1.default);
 exports.default = app;
 //# sourceMappingURL=app.js.map

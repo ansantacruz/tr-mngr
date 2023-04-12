@@ -10,12 +10,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("../app"));
 const debug_1 = __importDefault(require("debug"));
 const http_1 = __importDefault(require("http"));
-const database_1 = require("../database/database");
 const debug = (0, debug_1.default)('bdb:server');
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || '9086');
+const port = normalizePort('8080');
 app_1.default.set('port', port);
 debug('Port set to:', port);
 /**
@@ -76,13 +75,4 @@ function onListening() {
         : `port ${addr.port}`;
     debug(`Listening on ${bind}`);
 }
-/**
- * Validate the connection with the database using the ORM
- */
-database_1.sequelizeMySQL
-    .authenticate()
-    .then()
-    .catch((err) => {
-    debug('Unable to connect to the database:', err);
-});
 //# sourceMappingURL=www.js.map

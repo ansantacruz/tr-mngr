@@ -1,7 +1,7 @@
 runtime: nodejs12
-service: tc-geography-mngr
+service: tc-mngr
 env_variables:
-    PORT: 8083
+    PORT: 8080
     apiPath: ''
     databaseHost: '34.134.59.167'
     databasePass: 'root'

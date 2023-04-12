@@ -7,14 +7,14 @@
 import app from '../app';
 import debugLib from 'debug';
 import http from 'http';
-import { sequelizeMySQL } from '../database/database';
+
 
 const debug = debugLib('bdb:server');
 
  /**
   * Get port from environment and store in Express.
   */
- const port: string | number | false = normalizePort(process.env.PORT || '8083');
+ const port: string | number | false = normalizePort('8080');
  app.set('port', port);
  debug('Port set to:', port);
 
@@ -83,12 +83,3 @@ const debug = debugLib('bdb:server');
 	 debug(`Listening on ${bind}`);
  }
 
- /**
-  * Validate the connection with the database using the ORM
-  */
- sequelizeMySQL
-	 .authenticate()
-	 .then()
-	 .catch((err) => {
-		 debug('Unable to connect to the database:', err);
-	 });
