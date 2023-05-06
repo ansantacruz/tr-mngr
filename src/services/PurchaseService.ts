@@ -10,10 +10,9 @@ import { response } from 'express';
 const debug = debugLib('John');
 
 export class PurchaseService {
-   static getGeography() {
-      throw new Error('Method not implemented.');
-   }
 
+
+   constructor() {}
    public static async putPurchase(dataRequest: IUserPurchaseRequest): Promise<any> {
       try {
          const fetchInfo: IFetchInfo = {
@@ -24,6 +23,7 @@ export class PurchaseService {
 
          };
          const response = await FetchService.request(fetchInfo);
+         NotificationService.
          return Promise.resolve(response);
       } catch (err) {
          debug('Error trying to obtain products types- %s ', err);
