@@ -23,7 +23,7 @@ export class PurchaseService {
 
          };
          const response = await FetchService.request(fetchInfo);
-         NotificationService.
+         
          return Promise.resolve(response);
       } catch (err) {
          debug('Error trying to obtain products types- %s ', err);

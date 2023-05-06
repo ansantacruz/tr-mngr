@@ -1,4 +1,6 @@
-export default {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
     PORT: 8080,
     apiPath: '',
     databaseHost: '34.121.184.65',
@@ -6,9 +8,10 @@ export default {
     databasePort: '3306',
     databaseUser: 'root',
     databesePoolAcquiere: '30000',
-    databesePoolIdle:  '10000',
-    databesePoolMax:  '7',
+    databesePoolIdle: '10000',
+    databesePoolMax: '7',
     databesePoolMin: '0',
     logSentenceSQL: true,
     fetchTimeout: 300000
 };
+//# sourceMappingURL=config.js.map
