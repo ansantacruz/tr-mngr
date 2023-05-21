@@ -9,3 +9,8 @@ export interface IUserPurchaseResponse {
     operationCode: string;
     operationMessage:string;
 }
+
+export interface IUserSellerRequest {
+    edificio: number;
+    casa: number;
+}
