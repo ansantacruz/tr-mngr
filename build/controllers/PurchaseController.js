@@ -11,7 +11,7 @@ const RequestLogger_1 = __importDefault(require("../utilities/RequestLogger"));
 const debug_1 = __importDefault(require("debug"));
 const debug = (0, debug_1.default)('tc:purchaseontroller');
 const Purchaseontroller = (0, express_1.Router)();
-Purchaseontroller.put('/purchaseManager/package', RequestLogger_1.default.basic, async (req, res) => {
+Purchaseontroller.put('/purchaseManager/notifyPurchase', RequestLogger_1.default.basic, async (req, res) => {
     try {
         const response = await PurchaseService_1.PurchaseService.putPurchase(req.body);
         res.status(http_status_1.default.OK).send(response);

@@ -15,11 +15,12 @@ export default class FetchService {
     public static async request(fetchInfo: IFetchInfo): Promise<any> {
         const debug = debugLib('bdb:FetchService:'.concat(fetchInfo.debug));
         const codeError = fetchInfo.codeError;
-        const { customTimeout, endpoint, body, method } = fetchInfo;
+        const { customTimeout, endpoint, headers, body, method } = fetchInfo;
         try {
             const fetchParams: any = {
               body: JSON.stringify(body),
               method,
+              headers,
               timeout: customTimeout !== undefined ? customTimeout : Number(config.fetchTimeout)
             };
             const res = await fetch(endpoint, fetchParams); // NOSONAR

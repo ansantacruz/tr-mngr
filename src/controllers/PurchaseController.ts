@@ -10,7 +10,7 @@ const debug = debugLib('tc:purchaseontroller');
 const Purchaseontroller = Router();
 
 Purchaseontroller.put(
-    '/purchaseManager/package',
+    '/purchaseManager/notifyPurchase',
     RequestLogger.basic,
     async (req: Request, res: Response) => {
         try {

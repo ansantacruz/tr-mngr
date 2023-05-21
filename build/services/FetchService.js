@@ -12,11 +12,12 @@ class FetchService {
     static async request(fetchInfo) {
         const debug = (0, debug_1.default)('bdb:FetchService:'.concat(fetchInfo.debug));
         const codeError = fetchInfo.codeError;
-        const { customTimeout, endpoint, body, method } = fetchInfo;
+        const { customTimeout, endpoint, headers, body, method } = fetchInfo;
         try {
             const fetchParams = {
                 body: JSON.stringify(body),
                 method,
+                headers,
                 timeout: customTimeout !== undefined ? customTimeout : Number(config_1.default.fetchTimeout)
             };
             const res = await (0, node_fetch_1.default)(endpoint, fetchParams); // NOSONAR
