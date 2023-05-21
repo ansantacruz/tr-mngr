@@ -22,5 +22,16 @@ Purchaseontroller.put('/purchaseManager/notifyPurchase', RequestLogger_1.default
         res.status(error.codeStatusError).send(error.statusError);
     }
 });
+Purchaseontroller.put('/purchaseManager/notifyOffer', RequestLogger_1.default.basic, async (req, res) => {
+    try {
+        const response = await PurchaseService_1.PurchaseService.putOffer(req.body);
+        res.status(http_status_1.default.OK).send(response);
+    }
+    catch (err) {
+        const error = DebugUtilities_1.DebugUtilities.error(err, 'Error');
+        debug('ERROR: POST-ProductsController: %j', error.statusError);
+        res.status(error.codeStatusError).send(error.statusError);
+    }
+});
 exports.default = Purchaseontroller;
 //# sourceMappingURL=PurchaseController.js.map

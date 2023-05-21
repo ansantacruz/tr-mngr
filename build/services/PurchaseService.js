@@ -22,7 +22,7 @@ class PurchaseService {
             const response = await FetchService_1.default.request(fetchInfo);
             response.forEach(async (obj) => {
                 const fetchRequest = {
-                    codeError: 'Vendedor notification',
+                    codeError: 'Comprador notification',
                     debug: '',
                     endpoint: `https://fcm.googleapis.com/fcm/send`,
                     method: 'POST',
@@ -50,13 +50,35 @@ class PurchaseService {
             return Promise.reject(err);
         }
     }
-    static buildOfficesHeaders() {
-        return {
-            'Authorization': 'key=AAAAx2UUDLc:APA91bHe9qAS83UlGWWvxGYgpROuFknrSzPgv2OsusF89K8kXCCy2fe6k3tBMXuYuW2WcZwt8MpAvDfObUDmSab7KZh9saaYT1STWLF6bLj7fNUa_BtFpAtrKg-cyxX3XYyJqDrsl5Fn',
-            'Content-Type': 'application/json',
-        };
+    static async putOffer(dataRequest) {
+        try {
+            const fetchRequest = {
+                codeError: 'Vendedor notification',
+                debug: '',
+                endpoint: `https://fcm.googleapis.com/fcm/send`,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `key=AAAAx2UUDLc:APA91bHe9qAS83UlGWWvxGYgpROuFknrSzPgv2OsusF89K8kXCCy2fe6k3tBMXuYuW2WcZwt8MpAvDfObUDmSab7KZh9saaYT1STWLF6bLj7fNUa_BtFpAtrKg-cyxX3XYyJqDrsl5Fn`,
+                },
+                body: {
+                    to: dataRequest.package.token,
+                    notification: {
+                        title: 'Tienes una nueva oferta para revisar',
+                        body: 'Revisa tu telefono, tienes una nueva oferta a tu compra',
+                        click_action: 'https://ejemplo.com',
+                        sound: 'default'
+                    },
+                    data: { oferta: dataRequest }
+                }
+            };
+            await FetchService_1.default.request(fetchRequest);
+        }
+        catch (err) {
+            debug('Error trying to obtain products types- %s ', err);
+            return Promise.reject(err);
+        }
     }
-    ;
     static buildOfficesHeadersNormal() {
         return {
             'Content-Type': 'application/json',

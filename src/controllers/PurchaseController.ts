@@ -25,5 +25,21 @@ Purchaseontroller.put(
 );
 
 
+Purchaseontroller.put(
+    '/purchaseManager/notifyOffer',
+    RequestLogger.basic,
+    async (req: Request, res: Response) => {
+        try {
+            const response = await PurchaseService.putOffer(req.body);
+            res.status(HTTP_STATUS_CODES.OK).send(response);
+        } catch (err) {
+            const error = DebugUtilities.error(err, 'Error');
+            debug('ERROR: POST-ProductsController: %j', error.statusError);
+            res.status(error.codeStatusError).send(error.statusError);
+        }
+    }
+);
+
+
 
 export default Purchaseontroller;

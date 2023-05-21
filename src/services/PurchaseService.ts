@@ -38,7 +38,7 @@ export class PurchaseService {
 
          response.forEach( async (obj: Vendedores) => {
             const fetchRequest: any = {
-               codeError: 'Vendedor notification',
+               codeError: 'Comprador notification',
                debug: '',
                endpoint: `https://fcm.googleapis.com/fcm/send`,
                method: 'POST',
@@ -57,7 +57,6 @@ export class PurchaseService {
                  data: {package: dataRequest.package}
                }
             };
-
             await FetchService.request(fetchRequest);
          });
 
@@ -69,12 +68,35 @@ export class PurchaseService {
       }
    }
 
-   private static buildOfficesHeaders(): HeadersInit {
-      return {
-         'Authorization': 'key=AAAAx2UUDLc:APA91bHe9qAS83UlGWWvxGYgpROuFknrSzPgv2OsusF89K8kXCCy2fe6k3tBMXuYuW2WcZwt8MpAvDfObUDmSab7KZh9saaYT1STWLF6bLj7fNUa_BtFpAtrKg-cyxX3XYyJqDrsl5Fn',
-         'Content-Type': 'application/json',
-      };
-   };
+   public static async putOffer(dataRequest: any): Promise<any> {
+      try {
+         const fetchRequest: any = {
+            codeError: 'Vendedor notification',
+            debug: '',
+            endpoint: `https://fcm.googleapis.com/fcm/send`,
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+               Authorization: `key=AAAAx2UUDLc:APA91bHe9qAS83UlGWWvxGYgpROuFknrSzPgv2OsusF89K8kXCCy2fe6k3tBMXuYuW2WcZwt8MpAvDfObUDmSab7KZh9saaYT1STWLF6bLj7fNUa_BtFpAtrKg-cyxX3XYyJqDrsl5Fn`,
+            },
+            body: {
+               to: dataRequest.package.token,
+               notification: {
+                  title: 'Tienes una nueva oferta para revisar',
+                  body: 'Revisa tu telefono, tienes una nueva oferta a tu compra',
+                  click_action: 'https://ejemplo.com',
+                  sound : 'default'
+              },
+              data: {oferta: dataRequest}
+            }
+         };
+         await FetchService.request(fetchRequest);
+      } catch (err) {
+         debug('Error trying to obtain products types- %s ', err);
+         return Promise.reject(err);
+      }
+   }
+
    private static buildOfficesHeadersNormal(): HeadersInit {
       return {
          'Content-Type': 'application/json',
