@@ -80,7 +80,7 @@ export class PurchaseService {
                Authorization: `key=AAAAx2UUDLc:APA91bHe9qAS83UlGWWvxGYgpROuFknrSzPgv2OsusF89K8kXCCy2fe6k3tBMXuYuW2WcZwt8MpAvDfObUDmSab7KZh9saaYT1STWLF6bLj7fNUa_BtFpAtrKg-cyxX3XYyJqDrsl5Fn`,
             },
             body: {
-               to: dataRequest.package.token,
+               to: dataRequest.vendedor.token,
                notification: {
                   title: 'Tienes una nueva oferta para revisar',
                   body: 'Revisa tu telefono, tienes una nueva oferta a tu compra',
