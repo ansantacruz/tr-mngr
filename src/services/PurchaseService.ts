@@ -13,7 +13,6 @@ const debug = debugLib('John');
 
 export class PurchaseService {
 
-   
    public static JsonHeaders: HeadersInit = {
       'Content-Type': 'application/json',
       'Authorization': 'key=AAAAx2UUDLc:APA91bHe9qAS83UlGWWvxGYgpROuFknrSzPgv2OsusF89K8kXCCy2fe6k3tBMXuYuW2WcZwt8MpAvDfObUDmSab7KZh9saaYT1STWLF6bLj7fNUa_BtFpAtrKg-cyxX3XYyJqDrsl5Fn',
@@ -37,6 +36,7 @@ export class PurchaseService {
          const response = await FetchService.request(fetchInfo);
 
          response.forEach( async (obj: Vendedores) => {
+            dataRequest.package.distanciaVendedor = obj.distancia;
             const fetchRequest: any = {
                codeError: 'Comprador notification',
                debug: '',

@@ -21,6 +21,7 @@ class PurchaseService {
             };
             const response = await FetchService_1.default.request(fetchInfo);
             response.forEach(async (obj) => {
+                dataRequest.package.distanciaVendedor = obj.distancia;
                 const fetchRequest = {
                     codeError: 'Comprador notification',
                     debug: '',
