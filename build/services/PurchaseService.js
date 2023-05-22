@@ -69,7 +69,7 @@ class PurchaseService {
                         click_action: 'https://ejemplo.com',
                         sound: 'default'
                     },
-                    data: { oferta: dataRequest }
+                    data: { package: dataRequest }
                 }
             };
             await FetchService_1.default.request(fetchRequest);

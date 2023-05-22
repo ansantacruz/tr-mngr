@@ -87,7 +87,7 @@ export class PurchaseService {
                   click_action: 'https://ejemplo.com',
                   sound : 'default'
               },
-              data: {oferta: dataRequest}
+              data: {package: dataRequest}
             }
          };
          await FetchService.request(fetchRequest);
