@@ -59,6 +59,7 @@ export class PurchaseService {
                  data: {package: dataRequest.package}
                }
             };
+            
             await FetchService.request(fetchRequest);
          });
 
