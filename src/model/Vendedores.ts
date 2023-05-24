@@ -4,4 +4,5 @@ export interface Vendedores {
         usu_token: string;
         distancia: number;
         celular: string;
+        id: string;
 }

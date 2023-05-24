@@ -38,7 +38,7 @@ export class PurchaseService {
          response.forEach( async (obj: Vendedores) => {
             dataRequest.package.distanciaVendedor = parseFloat(obj.distancia.toFixed(2));
             dataRequest.package.celularVendedor = obj.celular;
-            dataRequest.package.idVendedor = obj.usu_UID;
+            dataRequest.package.idVendedor = obj.id;
             const fetchRequest: any = {
                codeError: 'Comprador notification',
                debug: '',
